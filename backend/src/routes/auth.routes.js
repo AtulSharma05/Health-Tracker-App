@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const emailService = require('../services/emailService');
 const { generateVerificationToken, generateResetToken } = require('../utils/tokenGenerator');
-const { requireAuth } = require('../middleware/auth');
+const { requireUnifiedAuth: requireAuth } = require('../middleware/unifiedAuth');
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_change_me';

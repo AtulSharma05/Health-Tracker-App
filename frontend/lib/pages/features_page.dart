@@ -47,6 +47,11 @@ class FeaturesPage extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, '/create-nutrition-plan'),
           ),
           _FeatureTile(
+            title: 'Pose Detection',
+            icon: Icons.accessibility_new,
+            onTap: () => Navigator.pushNamed(context, '/exercise-selection'),
+          ),
+          _FeatureTile(
             title: 'Rewards',
             icon: Icons.emoji_events,
             onTap: () {

@@ -23,4 +23,16 @@ class ApiConfig {
   }
 
   static String get localDeviceBaseUrl => 'http://$_devIp:4000/api/v1';
+
+  static String get wsBaseUrl {
+    if (kIsWeb) {
+      return 'ws://localhost:8001';
+    }
+    // Android emulator
+    return 'ws://10.0.2.2:8001';
+  }
+
+  static String get poseWebSocketUrl {
+    return '$wsBaseUrl/ws/pose-analysis';
+  }
 }

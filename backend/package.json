@@ -6,7 +6,11 @@
   "type": "commonjs",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "test:smoke": "node src/scripts/smokeTest.js",
+    "migrate:dry": "node src/scripts/migrateData.js --dry-run",
+    "migrate:run": "node src/scripts/migrateData.js",
+    "seed:foods": "node src/scripts/seedFoods.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

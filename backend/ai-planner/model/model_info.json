@@ -1,0 +1,45 @@
+{
+  "feature_columns": [
+    "age",
+    "gender",
+    "goal",
+    "experience",
+    "training_days",
+    "location",
+    "body_type",
+    "muscle_group",
+    "equipment",
+    "bodypart"
+  ],
+  "target_columns": [
+    "sets",
+    "reps",
+    "intensity",
+    "weight",
+    "rpe"
+  ],
+  "categorical_features": [
+    "gender",
+    "goal",
+    "experience",
+    "location",
+    "body_type",
+    "muscle_group",
+    "equipment",
+    "bodypart"
+  ],
+  "numerical_features": [
+    "age",
+    "training_days"
+  ],
+  "r2_scores": {
+    "sets": 0.43579564901854917,
+    "reps": 0.7978537172521531,
+    "intensity": 0.8749464779971844,
+    "weight": 0.9247658685526077,
+    "rpe": 0.7192977369896387
+  },
+  "average_r2": 0.7505318899620266,
+  "training_samples": 46288,
+  "test_samples": 11573
+}

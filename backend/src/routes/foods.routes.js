@@ -1,6 +1,6 @@
 const express = require('express');
 const Food = require('../models/Food');
-const { requireAuth } = require('../middleware/auth');
+const { requireUnifiedAuth: requireAuth } = require('../middleware/unifiedAuth');
 
 const router = express.Router();
 

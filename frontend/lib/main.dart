@@ -23,7 +23,9 @@ import 'pages/forgot_password_page.dart';
 import 'pages/log_workout_page.dart';
 import 'pages/workout_history_page.dart';
 import 'pages/create_workout_plan_page.dart';
-
+import 'pages/exercise_selection_page.dart';
+import 'pages/pose_analysis_page.dart';
+import 'services/pose_analysis_service.dart';
 void main() {
   runApp(const NutriPalApp());
 }
@@ -59,6 +61,10 @@ class NutriPalApp extends StatelessWidget {
         ),
         Provider<ExerciseDatabaseService>(
           create: (context) => ExerciseDatabaseService(context.read<ApiService>()),
+        ),
+        Provider<PoseAnalysisService>(
+          create: (context) => PoseAnalysisService(),
+          dispose: (context, service) => service.dispose(),
         ),
       ],
       child: MaterialApp(
@@ -98,6 +104,18 @@ class NutriPalApp extends StatelessWidget {
             final email = args is String ? args : '';
             return VerifyEmailPage(email: email);
           },
+          '/exercise-selection': (_) => const ExerciseSelectionPage(),
+        },
+        onGenerateRoute: (settings) {
+          if (settings.name == '/pose-analysis') {
+            final args = settings.arguments as Map<String, dynamic>?;
+            return MaterialPageRoute(
+              builder: (context) => PoseAnalysisPage(
+                exerciseName: args?['exerciseName'],
+              ),
+            );
+          }
+          return null;
         },
       ),
     );

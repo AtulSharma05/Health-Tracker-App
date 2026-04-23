@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { requireAuth } = require('../middleware/auth');
+const { requireUnifiedAuth: requireAuth } = require('../middleware/unifiedAuth');
 const UserProfile = require('../models/UserProfile');
 const { calculateTargets } = require('../utils/nutritionCalculator');
 
