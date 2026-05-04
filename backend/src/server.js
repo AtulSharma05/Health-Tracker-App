@@ -10,7 +10,7 @@ const app = express();
 
 // ── Global middleware ──
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 
 // ── Health check ──
 app.get('/health', (req, res) => {
@@ -26,6 +26,7 @@ app.use('/api/v1/profile', require('./routes/profile.routes'));
 app.use('/api/v1/foods', require('./routes/foods.routes'));
 app.use('/api/v1/meals', require('./routes/meals.routes'));
 app.use('/api/v1/plans', require('./routes/plans.routes'));
+app.use('/api/v1/food-log', require('./routes/foodLog.routes'));
 
 // Workout domain
 app.use('/api/v1/workouts', require('./routes/workout.routes'));

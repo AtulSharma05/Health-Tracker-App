@@ -122,6 +122,19 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
             const SizedBox(height: 8),
+            // AI Food Scan — full-width feature button
+            _QuickActionButton(
+              icon: Icons.auto_awesome,
+              label: '📸 AI Food Scanner',
+              color: const Color(0xFF00897B),
+              onTap: () async {
+                final result = await Navigator.pushNamed(context, '/ai-food-log');
+                if (result == true) {
+                  context.read<MealService>().fetchMeals();
+                }
+              },
+            ),
+            const SizedBox(height: 8),
             Row(
               children: [
                 Expanded(
@@ -188,6 +201,19 @@ class _DashboardPageState extends State<DashboardPage> {
                   onTap: () {
                     Navigator.pop(ctx);
                     Navigator.pushNamed(context, '/log-meal');
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.auto_awesome, color: Color(0xFF00897B)),
+                  title: const Text('AI Food Scanner'),
+                  subtitle: const Text('Snap a photo to log nutrients'),
+                  onTap: () {
+                    Navigator.pop(ctx);
+                    Navigator.pushNamed(context, '/ai-food-log').then((result) {
+                      if (result == true) {
+                        context.read<MealService>().fetchMeals();
+                      }
+                    });
                   },
                 ),
                 ListTile(

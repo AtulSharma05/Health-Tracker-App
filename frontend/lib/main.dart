@@ -6,6 +6,7 @@ import 'services/meal_service.dart';
 import 'services/nutrition_plan_service.dart';
 import 'services/profile_service.dart';
 import 'services/food_service.dart';
+import 'services/food_log_service.dart';
 import 'services/workout_service.dart';
 import 'services/workout_plan_service.dart';
 import 'services/exercise_database_service.dart';
@@ -25,6 +26,7 @@ import 'pages/workout_history_page.dart';
 import 'pages/create_workout_plan_page.dart';
 import 'pages/exercise_selection_page.dart';
 import 'pages/pose_analysis_page.dart';
+import 'pages/ai_food_log_page.dart';
 import 'services/pose_analysis_service.dart';
 void main() {
   runApp(const NutriPalApp());
@@ -53,6 +55,9 @@ class NutriPalApp extends StatelessWidget {
         Provider<FoodService>(
           create: (context) => FoodService(context.read<ApiService>()),
         ),
+        Provider<FoodLogService>(
+          create: (context) => FoodLogService(context.read<ApiService>()),
+        ),
         Provider<WorkoutService>(
           create: (context) => WorkoutService(context.read<ApiService>()),
         ),
@@ -78,6 +83,7 @@ class NutriPalApp extends StatelessWidget {
           '/register': (_) => const RegisterPage(),
           '/home': (_) => const HomePage(),
           '/log-meal': (_) => const LogMealPage(),
+          '/ai-food-log': (_) => const AiFoodLogPage(),
           '/meal-history': (_) => const MealHistoryPage(),
           '/create-nutrition-plan': (_) => const CreateNutritionPlanPage(),
           '/log-workout': (_) => const LogWorkoutPage(),
